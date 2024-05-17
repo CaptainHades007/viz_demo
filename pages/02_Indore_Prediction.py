@@ -1,4 +1,4 @@
-import streamlit as st
+7import streamlit as st
 import pandas as pd
 import plotly.express as px
 
@@ -23,7 +23,7 @@ fig = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["lati
                         zoom=10, height=600)
 
 # Set marker color based on label
-fig.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
+fig.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'}),size=7))
 
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
