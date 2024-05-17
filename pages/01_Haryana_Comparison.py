@@ -136,9 +136,9 @@ fig2.update_layout(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.plotly_chart(fig1, use_container_width=True)
     st.write('Predicted Classification')
+    st.plotly_chart(fig1, use_container_width=True)
 with col2:
-    st.plotly_chart(fig2, use_container_width=True)
     st.write('Actual Classification')
+    st.plotly_chart(fig2, use_container_width=True)
 # Run this with `streamlit run your_script_name.py`
