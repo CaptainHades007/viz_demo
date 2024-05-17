@@ -6,13 +6,16 @@ from datasets import names
 
 # Function to load data
 @st.cache_data
-def load_data(name):
-    data = pd.read_csv(names.name)
+def load_data_1():
+    data = pd.read_csv(names.HARYANA_DATA_1)
+    return data
+def load_data_2():
+    data = pd.read_csv(names.HARYANA_DATA_2)
     return data
 
 # Load data
-data = load_data('HARYANA_DATA_1')
-data2 = load_data('HARYANA_DATA_2')
+data = load_data_1()
+data2 = load_data_2()
 
 # Streamlit webpage title
 st.title('Haryana model comparison')
