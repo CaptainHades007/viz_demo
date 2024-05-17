@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 from datasets import names
-
+st.set_page_config(layout="wide")
 # Function to load data
 @st.cache_data
 def load_data_1():
