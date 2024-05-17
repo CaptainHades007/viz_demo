@@ -78,7 +78,7 @@ st.title('Haryana model comparison')
 
 
 fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
-                        zoom=9, height=600)
+                        zoom=7, height=600)
 
 # Set marker color based on label
 fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
@@ -88,7 +88,7 @@ fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 # Create the second scatter plot for data2
 fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
-                        zoom=9, height=600)
+                        zoom=7, height=600)
 
 # Set marker color based on label
 fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})))
