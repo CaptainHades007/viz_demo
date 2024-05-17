@@ -37,45 +37,64 @@ st.title('Haryana model comparison')
 # # fig.show()# Plot similar songs
 # st.plotly_chart(fig)
 # Create the first scatter plot for data
-fig1 = go.Figure(go.Scattermapbox(
-    lat=data['latitude'],
-    lon=data['longitude'],
-    mode='markers',
-    marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})),
-    text=data[['latitude', 'longitude', 'label']],
-    name='Data 1'
-))
+# fig1 = go.Figure(go.Scattermapbox(
+#     lat=data['latitude'],
+#     lon=data['longitude'],
+#     mode='markers',
+#     marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})),
+#     text=data[['latitude', 'longitude', 'label']],
+#     name='Data 1'
+# ))
 
-# Set layout for the first plot
-fig1.update_layout(
-    mapbox=dict(
-        style="open-street-map",
-        center=dict(lat=data['latitude'].mean(), lon=data['longitude'].mean()),
-        zoom=10
-    ),
-    margin={"r":0,"t":0,"l":0,"b":0}
-)
+# # Set layout for the first plot
+# fig1.update_layout(
+#     mapbox=dict(
+#         style="open-street-map",
+#         center=dict(lat=data['latitude'].mean(), lon=data['longitude'].mean()),
+#         zoom=10
+#     ),
+#     margin={"r":0,"t":0,"l":0,"b":0}
+# )
+
+# # Create the second scatter plot for data2
+# fig2 = go.Figure(go.Scattermapbox(
+#     lat=data2['latitude'],
+#     lon=data2['longitude'],
+#     mode='markers',
+#     marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})),
+#     text=data2[['latitude', 'longitude', 'label']],
+#     name='Data 2'
+# ))
+
+# # Set layout for the second plot
+# fig2.update_layout(
+#     mapbox=dict(
+#         style="open-street-map",
+#         center=dict(lat=data2['latitude'].mean(), lon=data2['longitude'].mean()),
+#         zoom=10
+#     ),
+#     margin={"r":0,"t":0,"l":0,"b":0}
+# )
+
+
+fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
+                        zoom=9, height=600)
+
+# Set marker color based on label
+fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
+
+fig1.update_layout(mapbox_style="open-street-map")
+fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 # Create the second scatter plot for data2
-fig2 = go.Figure(go.Scattermapbox(
-    lat=data2['latitude'],
-    lon=data2['longitude'],
-    mode='markers',
-    marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})),
-    text=data2[['latitude', 'longitude', 'label']],
-    name='Data 2'
-))
+fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
+                        zoom=9, height=600)
 
-# Set layout for the second plot
-fig2.update_layout(
-    mapbox=dict(
-        style="open-street-map",
-        center=dict(lat=data2['latitude'].mean(), lon=data2['longitude'].mean()),
-        zoom=10
-    ),
-    margin={"r":0,"t":0,"l":0,"b":0}
-)
+# Set marker color based on label
+fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})))
 
+fig2.update_layout(mapbox_style="open-street-map")
+fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 # Display the plots using Streamlit
 # Display the plots using Streamlit
 # st.write("# Data 1")
