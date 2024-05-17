@@ -78,23 +78,52 @@ st.title('Haryana model comparison')
 
 
 fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
-                        zoom=7, height=600)
+                        zoom=7, height=600, width=600)
 
 # Set marker color based on label
 fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
-
+# inimum Latitude: 27.93° N
+# Maximum Latitude: 30.33° N
+# Minimum Longitude: 74.43° E
+# Maximum Longitude: 77.59° E
 fig1.update_layout(mapbox_style="open-street-map")
 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig1.update_layout(
+    mapbox=dict(
+        center=dict(lat=29, lon=76),
+        # Set the range of latitude and longitude for the window
+        # Replace the values with your desired range
+        # bounds=dict(x=[74, 78], y=[27, 31]),
+        bounds=dict(west=74,
+            east=79,
+            south=27,
+            north=31),
+        zoom=7
+    )
+)
 
 # Create the second scatter plot for data2
 fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
-                        zoom=7, height=600)
+                        zoom=7, height=600, width=600)
 
 # Set marker color based on label
 fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})))
 
 fig2.update_layout(mapbox_style="open-street-map")
 fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+fig2.update_layout(
+    mapbox=dict(
+        center=dict(lat=29, lon=76),
+        # Set the range of latitude and longitude for the window
+        # Replace the values with your desired range
+        # bounds=dict(x=[74, 78], y=[27, 31]),
+        bounds=dict(west=74,
+            east=79,
+            south=27,
+            north=31),
+        zoom=7
+    )
+)
 # Display the plots using Streamlit
 # Display the plots using Streamlit
 # st.write("# Data 1")
