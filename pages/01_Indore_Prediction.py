@@ -14,7 +14,7 @@ def load_data():
 data = load_data()
 
 # Streamlit webpage title
-st.title('Haryana model comparison')
+st.title('Indore prediction')
 
 # Sidebar for user input features
 # st.sidebar.header('Filters')
