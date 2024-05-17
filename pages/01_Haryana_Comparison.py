@@ -18,6 +18,9 @@ def load_data_2():
 data = load_data_1()
 data2 = load_data_2()
 
+data['class'] = data['label'].map({0: 'BPL', 1: 'APL'})
+data2['class'] = data2['label'].map({0: 'BPL', 1: 'APL'})
+
 # Streamlit webpage title
 st.title('Haryana model comparison')
 
@@ -77,11 +80,11 @@ st.title('Haryana model comparison')
 # )
 
 
-fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
+fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "class"],
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'}),size=7))
+fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'yellow', 'APL': 'red'}),size=7))
 # inimum Latitude: 27.93° N
 # Maximum Latitude: 30.33° N
 # Minimum Longitude: 74.43° E
@@ -103,11 +106,11 @@ fig1.update_layout(
 )
 
 # Create the second scatter plot for data2
-fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
+fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "class"],
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'}),size=7))
+fig2.update_traces(marker=dict(color=data2['class'].map({'BPL': 'yellow', 'APL': 'red'}),size=7))
 
 fig2.update_layout(mapbox_style="open-street-map")
 fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
