@@ -1,35 +1,37 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
 
-from datasets import names
+headline = 'Demo for the open source data'
 
-# Function to load data
-@st.cache_data
-def load_data():
-    data = pd.read_csv(names.HARYANA_DATA_0)
-    return data
+st.set_page_config(
+    page_title=headline,
+    # page_icon='🎵',
+    layout='wide',
+    initial_sidebar_state='expanded',
+)
 
-# Load data
-data = load_data()
+# st.markdown(
+#     """
+#     <style>
+#     .stApp {
+#         background-image: url('https://images5.alphacoders.com/438/438504.jpg');
+#         background-attachment: fixed;
+#         background-size: cover;
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
 
-# Streamlit webpage title
-st.title('Haryana model comparison')
+st.title(headline)
+st.markdown("""
+""", unsafe_allow_html=False)
 
-# Sidebar for user input features
-# st.sidebar.header('Filters')
+# Adding a brief introduction about the project in bold
+# st.markdown("""
+# **In the dynamic realm of music, knowing what resonates with audiences is crucial. Our data-driven exploration helps us uncover trends and insights driving musical achievements. With innovative analytics and visualization, we navigate through genre preferences, artist popularity, and emerging trends.**
+# """, unsafe_allow_html=False)
 
-fig = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
-                        zoom=10, height=600)
-
-# Set marker color based on label
-fig.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
-
-fig.update_layout(mapbox_style="open-street-map")
-fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-
-# Show the plot
-# fig.show()# Plot similar songs
-st.plotly_chart(fig)
-
-# Run this with `streamlit run your_script_name.py`
+# # TODO: Homepage components
+# st.markdown("""
+# **Join us as we decode the secrets of musical success, shaping the future of music creation and engagement.**
+# """, unsafe_allow_html=False)
