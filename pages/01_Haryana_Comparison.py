@@ -81,7 +81,7 @@ fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["lat
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'})))
+fig1.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'}),size=7))
 # inimum Latitude: 27.93° N
 # Maximum Latitude: 30.33° N
 # Minimum Longitude: 74.43° E
@@ -107,7 +107,7 @@ fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["la
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'})))
+fig2.update_traces(marker=dict(color=data2['label'].map({0: 'yellow', 1: 'red'}),size=7))
 
 fig2.update_layout(mapbox_style="open-street-map")
 fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
