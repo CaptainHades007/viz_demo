@@ -7,7 +7,7 @@ from datasets import names
 # Function to load data
 @st.cache_data
 def load_data():
-    data = pd.read_csv(names.HARYANA_DATA)
+    data = pd.read_csv(names.HARYANA_DATA_0)
     return data
 
 # Load data
