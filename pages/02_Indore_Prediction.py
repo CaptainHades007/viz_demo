@@ -12,18 +12,18 @@ def load_data():
 
 # Load data
 data = load_data()
-
+data['class'] = data['label'].map({0: 'BPL', 1: 'APL'})
 # Streamlit webpage title
 st.title('Indore prediction')
 
 # Sidebar for user input features
 # st.sidebar.header('Filters')
 
-fig = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "label"],
+fig = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "class"],
                         zoom=10, height=600)
 
 # Set marker color based on label
-fig.update_traces(marker=dict(color=data['label'].map({0: 'yellow', 1: 'red'}),size=8))
+fig.update_traces(marker=dict(color=data['class'].map({'BPL': 'yellow', 'APL': 'red'}),size=8))
 
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
