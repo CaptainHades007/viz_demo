@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 from streamlit_folium import folium_static
 from datasets import names
-from branca.element import Template,MacroElement
+from plotly.subplots import make_subplots
 st.set_page_config(layout="wide")
 # Function to load data
 
@@ -140,6 +140,30 @@ fig2.update_layout(
 # st.plotly_chart(fig2)
 # Display figures side by side
 # Display figures side by side
+legend_fig = make_subplots(rows=1, cols=1)
+
+# Add legend items as annotations
+legend_fig.add_annotation(
+    x=0.5,
+    y=0.5,
+    xref="paper",
+    yref="paper",
+    text="<b>Legend</b><br>Big<br>Medium<br>Small",
+    showarrow=False,
+    font=dict(size=14),
+    align="center",
+    valign="middle"
+)
+
+# Customize layout of the legend figure
+legend_fig.update_layout(
+    width=200,  # Adjust the width as needed
+    height=200,  # Adjust the height as needed
+    margin=dict(t=20, b=20, l=20, r=20),
+    paper_bgcolor="rgba(255, 255, 255, 0.8)",  # Transparent background
+    plot_bgcolor="rgba(255, 255, 255, 0.8)"  # Transparent plot area background
+)
+st.plotly_chart(legend_fig)
 col1, col2 = st.columns(2)
 
 with col1:
