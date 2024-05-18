@@ -52,7 +52,7 @@ template = """
   <ul class='legend-labels'>
     <li><span style='background:red;opacity:0.7;'></span>APL</li>
     <li><span style='background:blue;opacity:0.7;'></span>BPL</li>
-    <li><span style='background:limegreen;opacity:0.7;'></span>both</li>
+    # <li><span style='background:limegreen;opacity:0.7;'></span>both</li>
 
   </ul>
 </div>
