@@ -42,7 +42,7 @@ m1=folium.Map(location=[data_0.latitude.mean(),data_0.longitude.mean()],zoom_sta
 # m1.fit_bounds([[27, 74], [31, 79]])
 map_values = data_0[['latitude','longitude','label']]
 dat = map_values.values.tolist()
-hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'blue',  1.0: 'white'},radius = 25).add_to(m1)
+hm = HeatMap(dat,min_opacity=0.5,max_opacity=0.8,gradient={0.0: 'blue',  1.0: 'white'},radius = 25).add_to(m1)
 # st_folium(m1)
 
 # ,gradient={0.0: 'lightblue',  1.0: 'red'}
@@ -55,7 +55,7 @@ m2=folium.Map(location=[data_1.latitude.mean(),data_1.longitude.mean()],zoom_sta
 # m1.fit_bounds([[27, 74], [31, 79]])
 map_values = data_1[['latitude','longitude','label']]
 dat = map_values.values.tolist()
-hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0: 'red'},radius = 25).add_to(m2)
+hm = HeatMap(dat,min_opacity=0.5,max_opacity=0.8,gradient={0.0: 'white',  1.0: 'red'},radius = 25).add_to(m2)
 # st_folium(m1)
 
 # ,gradient={0.0: 'lightblue',  1.0: 'red'}
