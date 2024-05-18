@@ -48,7 +48,7 @@ hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'blue',  1.0: 'w
 # ,gradient={0.0: 'lightblue',  1.0: 'red'}
 
 # st_folium(m1, use_container_width=True)
-folium_static(m1, width=650, height=650)
+# folium_static(m1, width=650, height=650)
 # st.write('Predicted Heatmap for poor localities')
 
 m2=folium.Map(location=[data_1.latitude.mean(),data_1.longitude.mean()],zoom_start=8,control_scale=True)
@@ -61,7 +61,7 @@ hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0: '
 # ,gradient={0.0: 'lightblue',  1.0: 'red'}
 
 # st_folium(m1, use_container_width=True)
-folium_static(m2, width=650, height=650)
+# folium_static(m2, width=650, height=650)
 # st.write('Predicted Heatmap for rich localities')
 col3, col4 = st.columns(2)
 
