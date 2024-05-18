@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-
+import folium
+from streamlit_folium import st_folium
+from folium.plugins import HeatMap
+from streamlit_folium import folium_static
 from datasets import names
 st.set_page_config(layout="wide")
 # Function to load data
