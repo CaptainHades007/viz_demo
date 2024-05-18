@@ -85,7 +85,7 @@ st.title('Haryana model comparison')
 
 
 fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "class"],
-                        zoom=7, height=600, width=600,autoLegend=True)
+                        zoom=7, height=600, width=600)
 
 # Set marker color based on label
 fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'blue', 'APL': 'red'}),size=7))
