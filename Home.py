@@ -30,7 +30,11 @@ st.markdown("""
 st.markdown("""
 **Please select the required page from the side menu**
 """, unsafe_allow_html=False)
-
+st.markdown("""
+""", unsafe_allow_html=False)
+st.markdown("""
+**Close the side menu if figures are not separated**
+""", unsafe_allow_html=False)
 # # TODO: Homepage components
 # st.markdown("""
 # **Join us as we decode the secrets of musical success, shaping the future of music creation and engagement.**
