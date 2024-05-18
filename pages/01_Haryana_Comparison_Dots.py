@@ -165,12 +165,10 @@ fig2.update_layout(
 # )
 # st.plotly_chart(legend_fig)
 
-st.write(
-    """
-    <span style="color:red; font-size: 24px">&#x25A0;</span> Red Square <br>
-    <span style="color:blue; font-size: 24px">&#x25CF;</span> Blue Circle
-    """
-)
+st.markdown("""
+- <span style='color:red;'>&#x25A0;</span> Red Square
+- <span style='color:blue;'>&#x25CF;</span> Blue Circle
+""", unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
