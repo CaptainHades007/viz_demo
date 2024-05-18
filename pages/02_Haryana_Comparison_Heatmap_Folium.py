@@ -120,7 +120,7 @@ data['class'] = data['label'].map({0: 'BPL', 1: 'APL'})
 data2['class'] = data2['label'].map({0: 'BPL', 1: 'APL'})
 
 # Streamlit webpage title
-st.title('Haryana model comparison heatmap')
+st.title('Haryana model comparison heatmap (for comparison only)')
 
 data_0 = data[data['label']==0]
 data_1 = data[data['label']==1]
