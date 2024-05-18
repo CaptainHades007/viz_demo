@@ -52,9 +52,8 @@ template = """
 <div class='legend-title'>Legend (draggable!)</div>
 <div class='legend-scale'>
   <ul class='legend-labels'>
-    <li><span style='background:red;opacity:0.7;'></span>Big</li>
-    <li><span style='background:orange;opacity:0.7;'></span>Medium</li>
-    <li><span style='background:green;opacity:0.7;'></span>Small</li>
+    <li><span style='background:red;opacity:0.7;'></span>APL</li>
+    <li><span style='background:cyan;opacity:0.7;'></span>BPL</li>
 
   </ul>
 </div>
