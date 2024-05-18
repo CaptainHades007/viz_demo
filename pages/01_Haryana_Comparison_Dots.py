@@ -115,7 +115,7 @@ fig1.update_layout(mapbox_style="open-street-map",annotations=[
                 yref="paper",
                 text=html_div,
                 showarrow=False
-            ))
+            )])
 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig1.update_layout(
     mapbox=dict(
