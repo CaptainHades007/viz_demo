@@ -49,7 +49,7 @@ template = """
     style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
      border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
 
-<div class='legend-title'>Legend (draggable!)</div>
+<div class='legend-title'>Legend</div>
 <div class='legend-scale'>
   <ul class='legend-labels'>
     <li><span style='background:red;opacity:0.7;'></span>APL</li>
@@ -164,6 +164,7 @@ hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0: '
 # ,gradient={0.0: 'lightblue',  1.0: 'red'}
 
 # st_folium(m1, use_container_width=True)
+m2.add_child(macro)
 folium_static(m2, width=650, height=650)
 st.write('Predicted Heatmap for rich localities')
 # col3, col4 = st.columns(2)
@@ -186,6 +187,7 @@ dat1 = map_values1.values.tolist()
 dat0 = map_values0.values.tolist()
 hm3 = HeatMap(dat1,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0: 'red'},radius = 25).add_to(m3)
 hm4 = HeatMap(dat0,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'cyan',  1.0: 'white'},radius = 25).add_to(m3)
+m3.add_child(macro)
 folium_static(m3, width=650, height=650)
 st.write("Predicted Heatmap for combined localities")
 # Run this with `streamlit run your_script_name.py`
