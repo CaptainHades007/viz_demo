@@ -10,100 +10,21 @@ from datasets import names
 from branca.element import Template,MacroElement
 st.set_page_config(layout="wide")
 # Function to load data
-template = """
-{% macro html(this, kwargs) %}
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Draggable - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  <script>
-  $( function() {
-    $( "#maplegend" ).draggable({
-                    start: function (event, ui) {
-                        $(this).css({
-                            right: "auto",
-                            top: "auto",
-                            bottom: "auto"
-                        });
-                    }
-                });
-});
-
-  </script>
-</head>
-<body>
-
-
+html_div = """
 <div id='maplegend' class='maplegend' 
     style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
      border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
 
-<div class='legend-title'>Legend</div>
+<div class='legend-title'>Legend (draggable!)</div>
 <div class='legend-scale'>
   <ul class='legend-labels'>
-    <li><span style='background:red;opacity:0.7;'></span>APL</li>
-    <li><span style='background:blue;opacity:0.7;'></span>BPL</li>
-
+    <li><span style='background:red;opacity:0.7;'></span>Big</li>
+    <li><span style='background:orange;opacity:0.7;'></span>Medium</li>
+    <li><span style='background:green;opacity:0.7;'></span>Small</li>
   </ul>
 </div>
 </div>
-
-</body>
-</html>
-
-<style type='text/css'>
-  .maplegend .legend-title {
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 90%;
-    }
-  .maplegend .legend-scale ul {
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-    float: left;
-    list-style: none;
-    }
-  .maplegend .legend-scale ul li {
-    font-size: 80%;
-    list-style: none;
-    margin-left: 0;
-    line-height: 18px;
-    margin-bottom: 2px;
-    }
-  .maplegend ul.legend-labels li span {
-    display: block;
-    float: left;
-    height: 16px;
-    width: 30px;
-    margin-right: 5px;
-    margin-left: 0;
-    border: 1px solid #999;
-    }
-  .maplegend .legend-source {
-    font-size: 80%;
-    color: #777;
-    clear: both;
-    }
-  .maplegend a {
-    color: #777;
-    }
-</style>
-{% endmacro %}"""
-
-# Add MacroElement to HeatMap
-macro = MacroElement()
-macro._template = Template(template)
-@st.cache_data
+"""
 def load_data_1():
     data = pd.read_csv(names.HARYANA_DATA_1)
     return data
@@ -186,7 +107,15 @@ fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'blue', 'APL': 'r
 # Maximum Latitude: 30.33° N
 # Minimum Longitude: 74.43° E
 # Maximum Longitude: 77.59° E
-fig1.update_layout(mapbox_style="open-street-map")
+fig1.update_layout(mapbox_style="open-street-map",annotations=[
+            go.layout.Annotation(
+                x=1,
+                y=0.5,
+                xref="paper",
+                yref="paper",
+                text=html_div,
+                showarrow=False
+            ))
 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig1.update_layout(
     mapbox=dict(
@@ -236,7 +165,7 @@ fig2.update_layout(
 col1, col2 = st.columns(2)
 
 with col1:
-    fig1.add_child(macro)
+    # fig1.add_child(macro)
     st.write('Predicted Classification')
     st.plotly_chart(fig1, use_container_width=True)
 with col2:
