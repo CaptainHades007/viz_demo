@@ -166,8 +166,7 @@ fig2.update_layout(
 # st.plotly_chart(legend_fig)
 
 st.markdown("""
-- <span style='color:red;'>&#x25A0;</span> Red Square
-- <span style='color:blue;'>&#x25CF;</span> Blue Circle
+- <span style='color:red;'>&#x25A0;</span> APL | <span style='color:blue;'>&#x25A0;</span> BPL
 """, unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
