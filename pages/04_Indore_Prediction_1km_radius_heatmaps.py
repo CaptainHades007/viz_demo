@@ -124,11 +124,11 @@ data_1 = data[data['label'] == 1]
 # Streamlit webpage title
 st.title('Indore prediction with 1km radius of features')
 
-m5=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=8,control_scale=True)
+m5=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=9,control_scale=True)
 # m5.fit_bounds([[27, 74], [31, 79]])
 map_values = data[['latitude','longitude','label']]
 dat = map_values.values.tolist()
-hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 25).add_to(m5)
+hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 20).add_to(m5)
 m5.add_child(macro)
 folium_static(m5, width=650, height=650)
 st.write('Overall heatmap')
