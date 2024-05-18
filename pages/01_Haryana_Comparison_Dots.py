@@ -167,8 +167,8 @@ fig2.update_layout(
 
 st.write(
     """
-    <div style="color:red"> &#x25A0; Red Square </div>
-    <div style="color:blue"> &#x25CF; Blue Circle </div>
+    <span style="color:red; font-size: 24px">&#x25A0;</span> Red Square <br>
+    <span style="color:blue; font-size: 24px">&#x25CF;</span> Blue Circle
     """
 )
 col1, col2 = st.columns(2)
