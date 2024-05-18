@@ -16,7 +16,7 @@ def load_data():
 # Load data
 data = load_data()
 data['class'] = data['label'].map({0: 'BPL', 1: 'APL'})
-data = data[data['label'] == 1]
+data = data[data['label'] == 0]
 # Streamlit webpage title
 st.title('Indore prediction')
 
