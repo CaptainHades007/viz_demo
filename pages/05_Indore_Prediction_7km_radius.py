@@ -10,7 +10,7 @@ from branca.element import Template, MacroElement
 
 # ...
 
-HeatMap(heat_data, radius=15).add_to(france_map)
+# HeatMap(heat_data, radius=15).add_to(france_map)
 
 # Custom draggable legend in HTML & CSS
 template = """
