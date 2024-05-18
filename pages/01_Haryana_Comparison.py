@@ -84,7 +84,7 @@ fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["lat
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'yellow', 'APL': 'red'}),size=7))
+fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'blue', 'APL': 'red'}),size=7))
 # inimum Latitude: 27.93° N
 # Maximum Latitude: 30.33° N
 # Minimum Longitude: 74.43° E
@@ -110,7 +110,7 @@ fig2 = px.scatter_mapbox(data2, lat="latitude", lon="longitude", hover_data=["la
                         zoom=7, height=600, width=600)
 
 # Set marker color based on label
-fig2.update_traces(marker=dict(color=data2['class'].map({'BPL': 'yellow', 'APL': 'red'}),size=7))
+fig2.update_traces(marker=dict(color=data2['class'].map({'BPL': 'blue', 'APL': 'red'}),size=7))
 
 fig2.update_layout(mapbox_style="open-street-map")
 fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
@@ -144,4 +144,30 @@ with col1:
 with col2:
     st.write('Actual Classification')
     st.plotly_chart(fig2, use_container_width=True)
+
+m1=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=8,control_scale=True)
+m1.fit_bounds([[27, 74], [31, 79]])
+map_values = data[['latitude','longitude','label']]
+dat = map_values.values.tolist()
+hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 20).add_to(m1)
+# st_folium(m1)
+
+m2=folium.Map(location=[data2.latitude.mean(),data2.longitude.mean()],zoom_start=8,control_scale=True)
+m2.fit_bounds([[27, 74], [31, 79]])
+map_values = data2[['latitude','longitude','label']]
+dat2 = map_values.values.tolist()
+hm2 = HeatMap(dat2,min_opacity=0.2,max_opacity=0.8,radius = 20).add_to(m2)
+# st_folium(m2)
+
+col3, col4 = st.columns(2)
+
+with col3:
+    # st_folium(m1, use_container_width=True)
+    folium_static(m1, width=650, height=650)
+    st.write('Predicted Heatmap')
+
+with col4:
+    # st_folium(m2, use_container_width=True)
+    folium_static(m2, width=650, height=650)
+    st.write("Actual Heatmap")
 # Run this with `streamlit run your_script_name.py`
