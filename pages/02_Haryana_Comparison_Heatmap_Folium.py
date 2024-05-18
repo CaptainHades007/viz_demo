@@ -146,11 +146,13 @@ col3, col4 = st.columns(2)
 
 with col3:
     # st_folium(m1, use_container_width=True)
+    m1.add_child(macro)
     folium_static(m1, width=650, height=650)
     st.write('Predicted Heatmap')
 
 with col4:
     # st_folium(m2, use_container_width=True)
+    m2.add_child(macro)
     folium_static(m2, width=650, height=650)
     st.write("Actual Heatmap")
 # Run this with `streamlit run your_script_name.py`
