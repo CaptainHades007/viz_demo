@@ -82,7 +82,7 @@ map_values0 = data_0[['latitude','longitude','label']]
 dat1 = map_values1.values.tolist()
 dat0 = map_values0.values.tolist()
 hm3 = HeatMap(dat1,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0: 'red'},radius = 25).add_to(m3)
-hm4 = HeatMap(dat0,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'blue',  1.0: 'white'},radius = 25).add_to(m3)
+hm4 = HeatMap(dat0,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'cyan',  1.0: 'white'},radius = 25).add_to(m3)
 folium_static(m3, width=650, height=650)
 # Run this with `streamlit run your_script_name.py`
 # Run this with `streamlit run your_script_name.py`
