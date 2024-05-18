@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 from streamlit_folium import folium_static
 from datasets import names
-
+from branca.element import Template, MacroElement
 template = """
 {% macro html(this, kwargs) %}
 
