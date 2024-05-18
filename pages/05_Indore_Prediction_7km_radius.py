@@ -121,7 +121,10 @@ data['class'] = data['label'].map({0: 'BPL', 1: 'APL'})
 data_0 = data[data['label'] == 0]
 data_1 = data[data['label'] == 1]
 # Streamlit webpage title
-st.title('Indore prediction')
+st.title('Indore prediction with 7km radius for features')
+st.markdown("""
+- <span style='color:red;'>&#x25A0;</span> APL | <span style='color:blue;'>&#x25A0;</span> BPL
+""", unsafe_allow_html=True)
 
 # Sidebar for user input features
 # st.sidebar.header('Filters')
