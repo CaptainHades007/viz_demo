@@ -132,8 +132,14 @@ hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 20).add_to(m5)
 m5.add_child(macro)
 folium_static(m5, width=650, height=650)
 st.write('Overall heatmap')
-# ,gradient={0.0: 'lightblue',  1.0: 'red'}
 
+
+# ,gradient={0.0: 'lightblue',  1.0: 'red'}
+m1=folium.Map(location=[data_0.latitude.mean(),data_0.longitude.mean()],zoom_start=8,control_scale=True)
+# m1.fit_bounds([[27, 74], [31, 79]])
+map_values = data_0[['latitude','longitude','label']]
+dat = map_values.values.tolist()
+hm2 = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'cyan',  1.0: 'white'},radius = 25).add_to(m1)
 # st_folium(m1, use_container_width=True)
 m1.add_child(macro)
 folium_static(m1, width=650, height=650)
