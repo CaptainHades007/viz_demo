@@ -27,9 +27,9 @@ st.markdown("""
 """, unsafe_allow_html=False)
 
 # Adding a brief introduction about the project in bold
-# st.markdown("""
-# **In the dynamic realm of music, knowing what resonates with audiences is crucial. Our data-driven exploration helps us uncover trends and insights driving musical achievements. With innovative analytics and visualization, we navigate through genre preferences, artist popularity, and emerging trends.**
-# """, unsafe_allow_html=False)
+st.markdown("""
+**Please select the required page from the side menu**
+""", unsafe_allow_html=False)
 
 # # TODO: Homepage components
 # st.markdown("""
