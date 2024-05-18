@@ -10,21 +10,7 @@ from datasets import names
 from branca.element import Template,MacroElement
 st.set_page_config(layout="wide")
 # Function to load data
-html_div = """
-<div id='maplegend' class='maplegend' 
-    style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
-     border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
 
-<div class='legend-title'>Legend (draggable!)</div>
-<div class='legend-scale'>
-  <ul class='legend-labels'>
-    <li><span style='background:red;opacity:0.7;'></span>Big</li>
-    <li><span style='background:orange;opacity:0.7;'></span>Medium</li>
-    <li><span style='background:green;opacity:0.7;'></span>Small</li>
-  </ul>
-</div>
-</div>
-"""
 def load_data_1():
     data = pd.read_csv(names.HARYANA_DATA_1)
     return data
@@ -99,7 +85,7 @@ st.title('Haryana model comparison')
 
 
 fig1 = px.scatter_mapbox(data, lat="latitude", lon="longitude", hover_data=["latitude", "longitude", "class"],
-                        zoom=7, height=600, width=600)
+                        zoom=7, height=600, width=600,autoLegend=True)
 
 # Set marker color based on label
 fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'blue', 'APL': 'red'}),size=7))
@@ -107,15 +93,7 @@ fig1.update_traces(marker=dict(color=data['class'].map({'BPL': 'blue', 'APL': 'r
 # Maximum Latitude: 30.33° N
 # Minimum Longitude: 74.43° E
 # Maximum Longitude: 77.59° E
-fig1.update_layout(mapbox_style="open-street-map",annotations=[
-            go.layout.Annotation(
-                x=1,
-                y=0.5,
-                xref="paper",
-                yref="paper",
-                text=html_div,
-                showarrow=False
-            )])
+fig1.update_layout(mapbox_style="open-street-map")
 fig1.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig1.update_layout(
     mapbox=dict(
