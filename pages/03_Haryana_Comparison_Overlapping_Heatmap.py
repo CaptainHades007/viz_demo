@@ -150,16 +150,18 @@ hm3 = HeatMap(dat1,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'white',  1.0:
 hm4 = HeatMap(dat0,min_opacity=0.2,max_opacity=0.8,gradient={0.0: 'cyan',  1.0: 'white'},radius = 25).add_to(m4)
 # folium_static(m4, width=650, height=650)
 # st.write("actual Heatmap 2 for combined localities")
-m3.add_child(macro)
-m4.add_child(macro)
+
+
 col5, col6 = st.columns(2)
 
 with col5:
     # st_folium(m1, use_container_width=True)
+    m3.add_child(macro)
     folium_static(m3, width=650, height=650)
     st.write('Predicted Heatmap')
 
 with col6:
     # st_folium(m2, use_container_width=True)
+    m4.add_child(macro)
     folium_static(m4, width=650, height=650)
     st.write("Actual Heatmap")
