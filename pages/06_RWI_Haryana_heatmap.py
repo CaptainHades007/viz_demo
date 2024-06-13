@@ -6,6 +6,7 @@ import folium
 from folium.plugins import HeatMap
 from streamlit_folium import st_folium
 from streamlit_folium import folium_static
+from datasets import names
 @st.cache_data
 def load_data_1():
     data = pd.read_csv(names.RWI_HARYANA_DATA_1)
