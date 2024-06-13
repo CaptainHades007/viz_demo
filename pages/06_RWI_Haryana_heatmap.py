@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import NearestNeighbors
 import numpy as np
 import folium
 from folium.plugins import HeatMap
