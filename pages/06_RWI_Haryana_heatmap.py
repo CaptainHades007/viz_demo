@@ -114,5 +114,6 @@ m1.fit_bounds([[27, 74], [31, 79]])
 map_values = data[['latitude','longitude','rwi']]
 dat = map_values.values.tolist()
 hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 20).add_to(m1)
+m1.add_child(macro)
 # st_folium(m1)
 folium_static(m1)
