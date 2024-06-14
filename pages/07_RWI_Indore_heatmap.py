@@ -110,11 +110,11 @@ def load_data_1():
 # Load data
 data = load_data_1()
 
-m1=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=1,control_scale=True)
+m1=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=12,control_scale=True)
 m1.fit_bounds([[21, 74], [24, 77]])
 map_values = data[['latitude','longitude','rwi']]
 dat = map_values.values.tolist()
-hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.8,radius = 15).add_to(m1)
+hm = HeatMap(dat,min_opacity=0.2,max_opacity=0.6,radius = 20).add_to(m1)
 m1.add_child(macro)
 # st_folium(m1)
 folium_static(m1)
