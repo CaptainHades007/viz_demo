@@ -110,7 +110,7 @@ def load_data_1():
 # Load data
 data = load_data_1()
 
-m1=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=10,control_scale=True)
+m1=folium.Map(location=[data.latitude.mean(),data.longitude.mean()],zoom_start=5,control_scale=True)
 m1.fit_bounds([[21, 74], [24, 77]])
 map_values = data[['latitude','longitude','rwi']]
 dat = map_values.values.tolist()
